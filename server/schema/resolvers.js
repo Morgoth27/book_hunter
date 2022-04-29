@@ -9,7 +9,7 @@ const resolvers = {
         const userData = await User.findOne({ _id: context.user._id })
         .select('-__v -password')
         .populate('savedBooks');
-        
+    
         return userData;
       }
       throw new AuthenticationError("Please log in.");
@@ -64,10 +64,7 @@ const resolvers = {
       if (context.user) {
         const userData = await User.findOneAndUpdate(
           { _id: context.user._id }, 
-          { $pull: { 
-            savedBooks: { bookId: bookId } 
-            }, 
-          }, 
+          { $pull: { savedBooks: { bookId: bookId } } }, 
           // Return the newly updated object instead of the original
           { new: true }
         );
