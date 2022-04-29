@@ -6,7 +6,9 @@ const resolvers = {
   Query: {
     me: async (parent, args, context) => {
       if (context.user) {
-        const userData = await User.findOne({ _id: context.user._id }).select("-__v -password").populate("savedBooks");
+        const userData = await User.findOne({ _id: context.user._id })
+        .select('-__v -password')
+        .populate('savedBooks');
         
         return userData;
       }
@@ -18,7 +20,6 @@ const resolvers = {
     createUser: async (parent, args) => {
       const user = await User.create(args);
       const token = signToken(user);
-
       return { token, user };
     },
 
@@ -33,7 +34,6 @@ const resolvers = {
 
       if (!correctPassword) throw new AuthenticationError("Incorrect password.");
       const token = signToken(user);
-
       return { token, user };
     },
 
@@ -47,6 +47,7 @@ const resolvers = {
             },
           },
           {
+           // Return the newly updated object instead of the original
             new: true,
             runValidators: true,
           }
@@ -54,6 +55,7 @@ const resolvers = {
       }
       throw new AuthenticationError("Please log in.");
     },
+
     deleteBook: async (parent, { bookId }, context) => {
       if (context.user) {
         const userData = await User.findOneAndUpdate(
@@ -62,6 +64,7 @@ const resolvers = {
             savedBooks: { bookId: bookId } 
             }, 
           }, 
+          // Return the newly updated object instead of the original
           { new: true }
         );
 
