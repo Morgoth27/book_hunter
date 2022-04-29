@@ -29,8 +29,10 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    createMatchup(tech1: String!, tech2: String!): Matchup
-    createVote(_id: String!, techNum: Int!): Matchup
+    login
+    createUser
+    saveBook
+    deleteBook
   }
 `;
 
