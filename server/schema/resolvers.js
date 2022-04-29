@@ -14,6 +14,10 @@ const resolvers = {
       }
       throw new AuthenticationError("Please log in.");
     },
+
+    users: async () => {
+      return await User.find({}).populate('users');
+    }
   },
 
   Mutation: {

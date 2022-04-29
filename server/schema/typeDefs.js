@@ -3,34 +3,29 @@ const { gql } = require('apollo-server-express');
 const typeDefs = gql`
   type User {
     _id: ID
-    name: String
-    location: String
-    studentCount: Int
-    classes: [Class]
+    username: String
+    email: String
+    bookCount: Int
+    savedBooks: [Book]
   }
 
   type Book {
     _id: ID
-    name: String
-    building: String
-    creditHours: Int
-    professor: Professor
+    title: String
+    author: [String]
+    link: String
+    image: String
+    description: String
   }
 
   type Auth {
-    _id: ID
-    name: String
-    officeHours: String
-    officeLocation: String
-    studentScore: Float
-    # Add a field that will return an array of Class instances
-    classes: [Class]
+    token: ID
+    user: User
   }
 
   type Query {
     me: User
-    classes: [Class]
-    professors: [Professor]
+    users: [User]
   }
 
   type Mutation {
