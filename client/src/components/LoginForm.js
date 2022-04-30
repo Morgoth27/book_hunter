@@ -35,7 +35,7 @@ const LoginForm = () => {
       //   throw new Error('something went wrong!');
       // }
 
-    AuthService.login(data.login.token)
+    Auth.login(data.login.token)
       } catch(err) {
         console.error(err)
         setShowAlert(true)
