@@ -1,4 +1,21 @@
 # book_hunter
+
+
+## Table of Contents
+
+* [Description](#description)
+* [User Story](#user-story)
+* [Functionality Criteria](#functionality-criteria)
+* [Installation](#installation-and-dependencies)
+* [Dependencies](#installation-and-dependencies)
+* [Technologies Used](#technologies-used)
+* [Contribution Guidelines](#contribution-guidelines)
+* [Author and Contact](#about-the-author)  
+
+## Description
+-------------
+
+**Book Hunter**
 Avid readers can search for new books!
 
 
@@ -44,3 +61,38 @@ THEN that book is deleted from my saved books list
 WHEN I click on the Logout button
 THEN I am logged out of the site and presented with a menu with the options Search for Books and Login/Signup and an input field to search for books and a submit button  
 ```
+![Photo of Application](./photos/preview_photo.PNG)
+
+## Installation and Dependencies
+-----------------------------
+
+Use npm install to install appropriate dependencies for this application.
+
+npm i  
+
+## Technologies Used
+-------------------
+
+* `JavaScript`
+* `Express`
+* `Node.JS`
+* `nodemon npm`
+* `Webpack.js`
+* `Apollo`
+* `GraphQL`
+* `JWT`
+* `React js`
+
+## About the Author
+------------------
+
+**Tiffany Hing**
+
+* [GitHub ](http://www.github.com/Morgoth27)
+
+* [LinkedIn ](http://www.linkedin.com/tiffanyhing)  
+
+## License
+----------
+* [License](#license)
+
