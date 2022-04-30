@@ -17,7 +17,6 @@ mutation login(password: String!, email: String!) {
     login(password: String!, email: String!) {
         user {
             _id
-            username
             email
         }
     }
@@ -42,8 +41,14 @@ mutation saveBook(BookData: bookInput) {
 
 export const DELETE_BOOK = gql`
 mutation deleteBook(bookId: ID!) {
-    deleteBook(bookId: ID!) {
-        
+    deleteBook(bookId: $bookId) {
+        _id
+        username
+        email
+        bookCount
+        savedBooks {
+            bookId
+        }
     }
 }
 `
