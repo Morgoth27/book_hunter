@@ -39,3 +39,11 @@ mutation saveBook(BookData: bookInput) {
         }
     }
 }`;
+
+export const DELETE_BOOK = gql`
+mutation deleteBook(bookId: ID!) {
+    deleteBook(bookId: ID!) {
+        
+    }
+}
+`
