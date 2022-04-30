@@ -27,6 +27,12 @@ const resolvers = {
       return { token, user };
     },
 
+    deleteUser: async (parent, args) => {
+      const user = await User.deleteOne({_id: args.userId});
+
+      return user
+    },
+
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 
@@ -42,8 +48,9 @@ const resolvers = {
     },
 
     saveBook: async (parent, { bookData }, context) => {
+
       if (context.user) {
-        return User.findOneAndUpdate(
+        const savedBooks = User.findOneAndUpdate(
           { _id: context.user._id },
           {
             $addToSet: {
@@ -54,8 +61,10 @@ const resolvers = {
            // Return the newly updated object instead of the original
             new: true,
             runValidators: true,
-          }
+          },
         );
+
+        return savedBooks
       }
       throw new AuthenticationError("Please log in.");
     },
