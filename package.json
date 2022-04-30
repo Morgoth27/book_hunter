@@ -16,6 +16,10 @@
     "concurrently": "^5.1.0"
   },
   "dependencies": {
-    "shebang-regex": "^4.0.0"
+    "shebang-regex": "^4.0.0",
+    "apollo-server-express": "^3.6.7",
+    "express": "^4.17.3",
+    "graphql": "^16.3.0",
+    "dotenv": "^16.0.0"
   }
 }
